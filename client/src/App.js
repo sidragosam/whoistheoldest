@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import OldestPersonDetails from "./components/OldestPersonDetails";
+import Introduction from "./components/Introduction";
 
 function App() {
   const [oldestPersonEver, setOldestPersonEver] = useState(null);
@@ -39,61 +41,24 @@ function App() {
           Oldest People Records API
         </h1>
 
-        {/* Introduction and API purpose */}
-        <div className="mb-8 text-gray-700">
-          <p className="text-lg">
-            This application tracks and displays data about the oldest person
-            currently alive and the oldest person ever recorded. The data is
-            managed and stored locally, giving full control over updates and the
-            ability to set constraints like birth date limits or country of
-            origin.
-          </p>
-          <p className="mt-4 text-lg">
-            The application fetches data from two API endpoints:
-          </p>
-          <ul className="list-disc list-inside mt-2 text-lg">
-            <li>
-              <strong>/oldest-living-person:</strong> Provides data about the
-              oldest person alive.
-            </li>
-            <li>
-              <strong>/oldest-person-ever:</strong> Provides data about the
-              oldest person to ever live.
-            </li>
-          </ul>
-        </div>
+        {/* Introduction */}
+        <Introduction />
 
-        {/* Oldest living person */}
-        <div className="mb-10 p-6 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold">
-            Currently the oldest person alive:
-          </h2>
-          <p className="mt-2">
-            <span className="font-semibold">Name:</span>{" "}
-            {oldestLivingPerson.name}
-          </p>
-          <p>
-            <span className="font-semibold">Age:</span> {oldestLivingPerson.age}
-          </p>
-          <p>
-            <span className="font-semibold">Country:</span>{" "}
-            {oldestLivingPerson.country}
-          </p>
-        </div>
+        {/* Flex container for the two cards, stacked on top of each other */}
+        <div className="space-y-6">
+          {/* Oldest living person */}
+          <OldestPersonDetails
+            title="Currently the oldest person alive:"
+            person={oldestLivingPerson}
+            gradientClass="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+          />
 
-        {/* Oldest person ever */}
-        <div className="p-6 bg-gradient-to-r from-teal-500 via-green-500 to-emerald-500 text-white rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold">Oldest person ever:</h2>
-          <p className="mt-2">
-            <span className="font-semibold">Name:</span> {oldestPersonEver.name}
-          </p>
-          <p>
-            <span className="font-semibold">Age:</span> {oldestPersonEver.age}
-          </p>
-          <p>
-            <span className="font-semibold">Country:</span>{" "}
-            {oldestPersonEver.country}
-          </p>
+          {/* Oldest person ever */}
+          <OldestPersonDetails
+            title="Oldest person ever:"
+            person={oldestPersonEver}
+            gradientClass="bg-gradient-to-r from-teal-500 via-green-500 to-emerald-500"
+          />
         </div>
       </div>
     </div>
