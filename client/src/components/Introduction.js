@@ -12,12 +12,12 @@ export default function Introduction() {
       </p>
       <ul className="list-disc list-inside mt-2 text-lg">
         <li>
-          <strong>/oldest-living-person:</strong> Provides data about the oldest
-          person alive.
+          <strong>/api/oldest-living-person:</strong> Provides data about the
+          oldest person alive.
         </li>
         <li>
-          <strong>/oldest-person-ever:</strong> Provides data about the oldest
-          person to ever live.
+          <strong>/api/oldest-person-ever:</strong> Provides data about the
+          oldest person to ever live.
         </li>
       </ul>
     </div>
