@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/oldest-person-ever")
+      .get("https://whoistheoldest.com/api/oldest-person-ever")
       .then((response) => setOldestPersonEver(response.data))
       .catch((error) => {
         console.error("Error:", error);
@@ -16,7 +16,7 @@ function App() {
       });
 
     axios
-      .get("http://localhost:3001/oldest-living-person")
+      .get("https://whoistheoldest.com/api/oldest-living-person")
       .then((response) => setOldestLivingPerson(response.data))
       .catch((error) => {
         console.error("Error:", error);
